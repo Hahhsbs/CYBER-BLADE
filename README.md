@@ -7,9 +7,7 @@ Instructions:---
 2). Then click on "app.exe" and run the program. It will open in command Prompt.
 
 3). Now Click on Browser and enter "127.0.0.1:5000"
-                
-                        OR 
-   
+                       OR
 In command Prompt there is a link : 127.0.0.1:5000. Open the LInk in Browser.
 
 
