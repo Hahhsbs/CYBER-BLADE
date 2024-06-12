@@ -2,6 +2,7 @@
 
 Requirements:
 1.) Internet
+
 2.) Basic Knowlege of Python, HTML, CSS, Bootstrap, Javascript.
 
 Instructions:---
@@ -21,7 +22,7 @@ In command Prompt there is a link : 127.0.0.1:5000. Open the LInk in Browser.
 
 If you check the File the you have to create it:
 
-1.) after Download this zip file please , don't ru virus.bat file because it will crash your PC (it is just for check project is working properly).
+1.) after Download this zip file please , don't run virus.bat file because it will crash your PC (it is just for check project is working properly).
 
 ![Screenshot 2024-04-26 053911](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/b39ca113-fe54-45fa-a833-0e7196e7e05c)
 
