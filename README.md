@@ -1,6 +1,7 @@
 # Cyber Blade a Vulnerability Scanner (Malicious File, Url scan with the help of VirusTotal API. It also scan vulnerable hidden directories of website.)
-<img style="text-align:center;" width="400" alt="logo" src="https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/6ba60301-6200-4f21-8489-7e3c55bab782">
-
+<div style="text-align:center;">
+    <img width="400" alt="logo" src="https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/6ba60301-6200-4f21-8489-7e3c55bab782">
+</div>
 Requirements:
 1.) Internet
 
