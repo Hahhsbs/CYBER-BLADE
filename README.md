@@ -1,4 +1,4 @@
-# Cyber-Secuirty-Project-6-month-training
+# Cyber Blade a Vulnerability Scanner (Malicious File, Url scan with the help of VirusTotal API. It also scan vulnerable hidden directories of website.)
 
 Instructions:---
 
