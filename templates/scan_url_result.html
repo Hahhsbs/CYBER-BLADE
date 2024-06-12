@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Scan Result</title>
+    <style>
+        body {
+            font-family: ui-sans-serif;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            color: #121481; /* Text color */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #f2f8ec96;
+
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 85px rgb(0 0 0);
+            margin-top: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #111277; /* Heading color */
+            margin-top: 0;
+            border-bottom: 2px solid #111277;
+            padding-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #ddd;
+            margin-top: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #12c2e9c5, #c471ed73, #f64f597d);
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #8abfec; /* Active tab background color */
+            color: #121481; /* Active tab text color */
+            border-color: transparent;
+        }
+        tr:hover {
+            background-color: #807dd8c9; /* Hovered tab background color */
+            color: #121481; /* Hovered tab text color */
+            border-color: transparent;
+            border-radius: 8px;
+        }
+        .detection-result {
+            font-weight: bold;
+        }
+        .malicious-logo {
+            width: 20px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .phishing-logo {
+    width: 20px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+        img.logo{
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <center><img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="cyber-blade">
+        <h2>URL Scan Result</h2>
+        <div class="background">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Security Vendor</th>
+                        <th>Positive Detection</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in range(detected_vendors|length) %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ detected_vendors[i][0] }}</td>
+                            <td class="positive-detection">
+                                {% if "malicious" in detected_vendors[i][1] %}
+                                    <img class="malicious-logo" src="{{ url_for('static', filename='malicious.png') }}" alt="Malicious">
+                                {% elif "phishing" in detected_vendors[i][1] %}
+                                    <img class="phishing-logo" src="{{ url_for('static', filename='phish.png') }}" alt="Phishing">
+                                {% endif %}
+                                {{ detected_vendors[i][1] }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

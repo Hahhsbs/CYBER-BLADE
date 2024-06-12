@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Blade</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+ 
+    <style>
+        body {
+            font-family: ui-sans-serif;
+            background: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+            background-image: url('/static/image2.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 20px;
+            color: #121481; /* Text color */
+        }
+        .container {
+            background-color: #f2f8ec36;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 85px rgb(0 0 0);
+            margin-top: 20px;
+        }
+        .nav-link {
+            color: #121481; /* Nav link color */
+            font-weight: bold;
+            animation: pulse 3s infinite alternate;
+        }
+        .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+            color: #121481; /* Active tab text color */
+            background-color: #8abfec; /* Active tab background color */
+            border-color: transparent;
+            border-radius: 8px;
+            
+        }
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            
+        }
+        .nav-tabs .nav-link:hover {
+            background-color: #807dd8c9; /* Hovered tab background color */
+            color: #121481; /* Hovered tab text color */
+            border-color: transparent;
+            border-radius: 8px;
+        }
+        .nav-tabs {
+        background-color: aliceblue;
+        border-radius: 8px;
+        width: fit-content;
+    }
+        .tab-pane {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: -7px 0px 20px 16px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #12c2e9c5, #c471ed73, #f64f597d);
+        }   
+        .form-control {
+            background-color: #ffeae3; /* Form input background color */
+            color: #121481; /* Form input text color */
+            border-color: #111277; /* Form input border color */
+        }
+        input#file {
+            padding: 3.5px;
+        }
+        
+        input.btn.btn-primary {
+            background: #121481; /* Primary button background color */
+            color: #fff; /* Primary button text color */
+            border-color: #ffb1b1; /* Primary button border color */
+            margin: 10px 0px 0px 0px;
+        }
+        .btn-danger {
+            background-color: #ff8484; /* Danger button background color */
+            border-color: #ff8484; /* Danger button border color */
+        }
+        .btn-danger:hover {
+            background-color: #ff5454; /* Hovered danger button background color */
+            border-color: #ff5454; /* Hovered danger button border color */
+        }
+        .table {
+            background-color: #ffeae3; /* Table background color */
+            color: #121481; /* Table text color */
+        }
+        .h1, h1 {
+            font-size: 2.5rem;
+            color: #111277; /* Heading color */
+        }
+        img {
+            vertical-align: middle;
+            border-style: none;
+            width: 25%;
+            animation: pulse 3s infinite alternate;
+        }
+        label {
+        display: inline-block;
+        margin-bottom: .5rem;
+        font-weight: 600;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <center><img class="logo" src="{{ url_for('static', filename='logo.png') }}" alt="cyber-blade">
+        <!-- Nav tabs -->
+
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#urlScanner"><i class="fas fa-link"></i> URL Scanner</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#securityScanner"><i class="fas fa-file-alt"></i> File Scanner</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#dirFinder"><i class="fas fa-search"></i> Vulnerable Directory Finder</a>
+            </li>
+        </ul>
+    </center>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- URL Scanner Tab -->
+            <div id="urlScanner" class="container tab-pane active"><br>
+                <h1><i class="fas fa-link"></i> URL Scanner</h1>
+                <form id="urlForm" action="/check_url" method="post">
+                    <label for="url">Enter URL:</label>
+                    <input type="text" id="url" name="url" class="form-control" required>
+                    <input type="submit" value="Check" class="btn btn-primary">
+                </form>
+                <div id="result"></div>
+            </div>
+
+            <!-- Security Scanner Tab -->
+            <div id="securityScanner" class="container tab-pane fade"><br>
+                <h1><i class="fas fa-file-alt"></i> File Scanner</h1>
+                <form id="securityForm" action="/scan_file" method="post" enctype="multipart/form-data">
+                    <label for="file">Upload File:</label>
+                    <input type="file" id="file" name="file" class="form-control" required>
+                    <input type="submit" value="Scan" class="btn btn-primary">
+                </form>
+                <div id="result"></div>
+            </div>
+
+            <!-- Vulnerable Directory Finder Tab -->
+
+            <div id="dirFinder" class="container tab-pane fade"><br>
+                <h1><i class="fas fa-search"></i> Vulnerable Directory Finder</h1>
+                <form id="dirForm" method="POST" action="/vul_scanner">
+                    <div class="form-group">
+                        <label for="url">URL:</label>
+                        <input type="text" class="form-control" id="url" name="url" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="threads">Number of Threads:</label>
+                        <input type="number" class="form-control" id="threads" name="threads" value="10" required>
+                    </div>
+                    <select name="method">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <!-- Add other HTTP methods as needed -->
+                    </select>
+                
+                    <button style="background-color: #121481;" type="submit" class="btn btn-primary">Start Finding</button>
+                    <button style="background-color: #da1b1b;" type="button" class="btn btn-danger" id="stopBtn"><i class="fas fa-stop"></i> Stop</button>
+                </form>
+                <hr>
+                <div id="progressTable" class="table-responsive">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Method</th>
+                                <th>Target URL</th>
+                                <th>Response Code</th>
+                                <th>Dir Found</th>
+                            </tr>
+                        </thead>
+                        <tbody id="progressBody">
+                            {% for i in range(progress|length) %}
+                                <tr class="{% if progress[i].status == 'success' %}table-success{% elif progress[i].status == 'info' %}table-info{% else %}table-danger{% endif %}">
+                                    <td>{{ i + 1 }}</td>
+                                    <td>{{ progress[i].method }}</td>
+                                    <td><a href="{{ progress[i].url }}" target="_blank">{{ progress[i].url }}</a></td>
+                                    <td>{{ progress[i].response_code }}</td>
+                                    <td>{% if progress[i].status == 'success' %}✔{% else %}✘{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to fetch progress messages from server
+            function fetchProgress() {
+                $.get('/progress', function(data) {
+                    $('#progressTable tbody').empty();
+                    for (var i = 0; i < data.length; i++) {
+                        var message = data[i];
+                        var rowClass = message.status === 'success' ? 'table-success' : (message.status === 'info' ? 'table-info' : 'table-danger');
+                        var rowHtml = '<tr class="' + rowClass + '"><td>' + (i + 1) + '</td><td>' + message.method + '</td><td><a href="' + message.url + '" target="_blank">' + message.url + '</a></td><td>' + message.response_code + '</td><td>' + (message.status === 'success' ? '✔' : '✘') + '</td></tr>';
+                        $('#progressTable tbody').append(rowHtml);
+                    }
+                });
+            }
+
+            // Fetch progress messages every 2 seconds
+            var intervalId = setInterval(fetchProgress, 2000);
+
+            // Stop button click handler
+            $('#stopBtn').click(function() {
+                $.get('/stop', function() {
+                    clearInterval(intervalId);
+                });
+            });
+        });
+    </script>
+    </script>
+    
+</body>
+</html>
