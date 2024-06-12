@@ -24,10 +24,9 @@ If you check the File the you have to create it:
 1.) after Download this zip file please , don't ru virus.bat file because it will crash your PC (it is just for check project is working properly).
 
 ![Screenshot 2024-04-28 185631](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/006d0e03-ea8a-4b29-ae9b-95bd4e40d616)
-![Screenshot 2024-04-26 053758](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/d3a8fdf8-8bfe-430f-b169-d912877c3fab)
-![Screenshot 2024-04-26 053911](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/aae268bb-b4f6-4696-8f6b-6363ae150a19)
+
 ![Screenshot 2024-04-26 053944](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/df787fd7-6a9f-42b5-9727-74830f7a015e)
-![Screenshot 2024-04-26 054150](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/1eb44d21-784b-444d-85ff-441ef24b94a5)
+
 ![Screenshot 2024-04-26 054208](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/0419881a-cd89-473e-a217-627b2ef4a412)
 ![Screenshot 2024-04-26 054321](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/1f4cd4cd-964d-43eb-82a3-90a5f1d99b29)
 ![Screenshot 2024-04-26 054502](https://github.com/ethical-spy/CYBER-BLADE/assets/155846967/6e0dbf36-4457-42d1-adcf-7ac8109b0715)
